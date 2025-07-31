@@ -1,0 +1,16 @@
+body{
+    background-color: #313C47;
+
+
+}
+
+
+.container{
+    text-align: center;
+    padding: 0px 0 20px 0;
+    border-bottom: 1px solid black;
+    
+}
+.container h1{
+    font-size: 46px;
+}
