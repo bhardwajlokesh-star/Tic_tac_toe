@@ -33,6 +33,19 @@ function checkWin() {
 }
 
 
+function checkDraw() {
+    for(let row =0; row<3; row++) {
+        for(let col=0; col<3; col++){
+            if(board[row][col]===""){
+                return false;
+            }
+        }
+    }
+    return true;
+    
+}
+
+
 
 document.addEventListener('DOMContentLoaded',()=>{
 
@@ -43,6 +56,7 @@ document.addEventListener('DOMContentLoaded',()=>{
     const oButton=document.getElementById("O");
     const gameBoard=document.getElementById("game-board");
     const gameBox=document.querySelectorAll('.cell');
+    const turn=document.getElementById("turn-indicator");
 
 
 
@@ -61,6 +75,8 @@ document.addEventListener('DOMContentLoaded',()=>{
             gameSection.style.display='none';
             gameBoard.style.display='grid';
             currentPlayer="X";
+            turn.style.display='block';
+            turn.textContent=` ${currentPlayer}'s Turns`;
         });
 
 
@@ -68,6 +84,8 @@ document.addEventListener('DOMContentLoaded',()=>{
             gameSection.style.display='none';
             gameBoard.style.display='grid';
             currentPlayer="O";
+            turn.style.display='block';
+            turn.textContent=` ${currentPlayer}'s Turns`;
         });
 
 
@@ -85,8 +103,11 @@ document.addEventListener('DOMContentLoaded',()=>{
                         alert(`${currentPlayer} Wins!`);
 
                         return;
-                    }
+                   }else  if(checkDraw()){
+                    alert(`It's a Draw!`);
 
+                    }
+                  
 
                     currentPlayer=(currentPlayer==="X") ? "O":"X";
                 } else{
