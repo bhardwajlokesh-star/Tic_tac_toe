@@ -57,11 +57,37 @@ document.addEventListener('DOMContentLoaded',()=>{
     const gameBoard=document.getElementById("game-board");
     const gameBox=document.querySelectorAll('.cell');
     const turn=document.getElementById("turn-indicator");
+    const gameOver = document.getElementById("game-over");
+    const playAgain= document.getElementById("play-again");
+    const goToHome= document.getElementById("GoHome");
+    const Winner=document.getElementById("Winner");
+
 
 
 
     gameSection.style.display='none';
     gameBoard.style.display='none';
+
+
+    playAgain.addEventListener("click",() =>{
+        for(let i=0; i<3; i++){
+            for (let j=0; j<3;j++){
+                board[i][j]="";
+            }
+        }
+
+        gameBox.forEach(cell =>{
+            cell.textContent="";
+        });
+
+        gameOver.style.display='none';
+
+        gameBoard.style.display='grid';
+        turn.style.display='block';
+
+            turn.textContent=`turn: ${currentPlayer}`;
+
+    })
 
 
     vsPlayer.addEventListener('click',() =>{
@@ -100,11 +126,21 @@ document.addEventListener('DOMContentLoaded',()=>{
                     event.target.textContent=currentPlayer;
 
                     if(checkWin()){
-                        alert(`${currentPlayer} Wins!`);
+                        gameBoard.style.display='none';
+                        gameOver.style.display='block';
+                        Winner.style.display='block';
+                        Winner.textContent=`${currentPlayer}'s Wins!`;
+
 
                         return;
                    }else  if(checkDraw()){
-                    alert(`It's a Draw!`);
+                    gameBoard.style.display='none';
+                    gameOver.style.display='block';
+                    Winner.style.display='block';
+                    Winner.textContent="It's a Draw!";
+
+
+
 
                     }
                   
