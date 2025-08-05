@@ -1,39 +1,56 @@
 body{
-    background-color: #313C47;
-
-
-}
-#heading{
-    text-align: center;
-    font-size: 3rem;
-}
-button{
-    cursor: pointer;
-}
-
-
-.container{
-    text-align: center;
-    padding: 0px 0 20px 0;
-    border-bottom: 1px solid black;
-    
-}
-.container h1{
-    font-size: 46px;
-}
-#Player{
-    cursor: pointer;
-}
-
-.Game{
+    background-color: #fff;
+    color: black;
+    font-family: 'Arial', sans-serif;
     display: flex;
     justify-content: center;
-    padding: 120px;
-    gap: 10px;
+    min-height: 100vh;
+    margin: 0;
+
 }
-.Game h3{
-    font-size: 2rem;
+
+.container,.Game, #game-over{
+    background-color: #E0E0E0;
+    padding: 150px;
+    border-radius: 3rem;
+    box-shadow: white;
 }
+
+h1 {
+    color: black; 
+    margin-bottom: 20px;
+}
+
+#turn-indicator, #game-over {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #6DD5ED; 
+}
+
+button{
+    background-color: black;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 1rem;
+    font-size: large;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.1s ease; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+button:hover{
+     background-color: #53C3E0; 
+    transform: translateY(-2px);
+}
+
+button:active {
+    transform: translateY(0); 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+
 
 #game-board{
     margin-top: 30px;
@@ -53,4 +70,3 @@ button{
     width: 100px;
     height: 100px;
 }
-
