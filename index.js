@@ -87,7 +87,9 @@ document.addEventListener('DOMContentLoaded',()=>{
 
             turn.textContent=`turn: ${currentPlayer}`;
 
-    })
+    });
+
+    
 
 
     vsPlayer.addEventListener('click',() =>{
@@ -151,6 +153,28 @@ document.addEventListener('DOMContentLoaded',()=>{
                 }
             })
         })
+
+
+
+        goToHome.addEventListener("click",() =>{
+        for(let i=0; i<3; i++){
+            for (let j=0; j<3;j++){
+                board[i][j]="";
+            }
+        }
+
+        gameBox.forEach(cell =>{
+            cell.textContent="";
+        });
+
+        currentPlayer="X";
+
+        gameOver.style.display='none';
+        gameBoard.style.display='none';
+        turn.style.display='none';
+        welcomeScreen.style.display='flex';;
+
+    });
     
     
 });
