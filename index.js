@@ -67,6 +67,7 @@ document.addEventListener('DOMContentLoaded',()=>{
 
     gameSection.style.display='none';
     gameBoard.style.display='none';
+    gameOver.style.display='none';
 
 
     playAgain.addEventListener("click",() =>{
@@ -78,14 +79,15 @@ document.addEventListener('DOMContentLoaded',()=>{
 
         gameBox.forEach(cell =>{
             cell.textContent="";
+            cell.classList.remove("cell-x", "cell-o");
         });
 
+       
+        currentPlayer="X";
         gameOver.style.display='none';
-
         gameBoard.style.display='grid';
         turn.style.display='block';
-
-            turn.textContent=`turn: ${currentPlayer}`;
+        turn.textContent=`${currentPlayer}'s Turns`;
 
     });
 
@@ -127,27 +129,34 @@ document.addEventListener('DOMContentLoaded',()=>{
                     board[row][col]=currentPlayer;
                     event.target.textContent=currentPlayer;
 
+                    event.target.classList.add(currentPlayer === "X" ? "cell-x" : "cell-o");
+
                     if(checkWin()){
+                        setTimeout( () => {
                         gameBoard.style.display='none';
+                        turn.style.display='none';
                         gameOver.style.display='block';
                         Winner.style.display='block';
                         Winner.textContent=`${currentPlayer}'s Wins!`;
+                    },500 );
 
 
                         return;
                    }else  if(checkDraw()){
+
+                    setTimeout( () => {
                     gameBoard.style.display='none';
+                    turn.style.display='none';
                     gameOver.style.display='block';
                     Winner.style.display='block';
                     Winner.textContent="It's a Draw!";
-
-
-
+                    }, 500 );
 
                     }
                   
 
                     currentPlayer=(currentPlayer==="X") ? "O":"X";
+                    turn.textContent=`${currentPlayer}'s Turns`;
                 } else{
                     console.log("This Box is Already Taken!");
                 }
@@ -165,6 +174,7 @@ document.addEventListener('DOMContentLoaded',()=>{
 
         gameBox.forEach(cell =>{
             cell.textContent="";
+            cell.classList.remove("cell-x", "cell-o");
         });
 
         currentPlayer="X";
@@ -172,7 +182,8 @@ document.addEventListener('DOMContentLoaded',()=>{
         gameOver.style.display='none';
         gameBoard.style.display='none';
         turn.style.display='none';
-        welcomeScreen.style.display='flex';;
+        gameSection.style.display='none';
+        welcomeScreen.style.display='block';
 
     });
     
