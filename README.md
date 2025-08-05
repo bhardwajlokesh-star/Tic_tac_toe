@@ -11,6 +11,9 @@ How to Play
 4. Click any empty square on the board to make your move.
 5. The game tracks turns, detects wins (3 in a row), and draws.
 6. After a game ends, you can choose to "Play Again" or "Go To Home".
+7. ![GitHub Pages](https://img.shields.io/badge/View%20Live%20Demo-Click%20Here-brightgreen?style=for-the-badge&logo=github)
+8. [Live Demo](https://bhardwajlokesh-star.github.io/Tic_tac_toe/)
+
 
 
 
